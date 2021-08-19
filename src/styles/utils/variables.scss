@@ -1,0 +1,27 @@
+// BREAKPOINTS
+$min-width: 320px;
+$max-width: 1240px;
+$screen-gap: 10px;
+$xs: 460px;
+$s: 767px;
+$m: 1023px;
+$l: 1440px;
+$xl: 1919px;
+
+// COLORS  - DON'T USE this variables on templates, use variables from "ABSTRACT-COLORS" section
+$_red: #ff0000;
+$_white: #ffffff;
+$_black: #000000;
+$_blue: #0000ff;
+$_grey: #eeeeee;
+
+// ABSTRACT-COLORS - USE this variables on templates
+$color-main: $_red;
+$color-text: $_black;
+$color-text-link: $_blue;
+$color-text-link-hover: $_black;
+$color-background: $_grey;
+
+// FONTS
+$font-title: "Lora", serif;
+$font-text: "Oswald", sans-serif;

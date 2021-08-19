@@ -1,0 +1,80 @@
+# Включаем редиректы вообще всего
+#Options +FollowSymLinks
+RewriteEngine on
+
+AddDefaultCharset utf-8
+php_value date.timezone Europe/Minsk
+RewriteBase /
+
+# Редирект на без www
+#RewriteCond %{HTTP_HOST} .
+#RewriteCond %{HTTP_HOST} ^www.(.*)$ [NC]
+#RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Редирект без html
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Редирект для https
+#RewriteCond %{SERVER_PORT} !^443$
+#RewriteRule ^(.*)$ https://site.by/$1 [R=301,L]
+
+# Включаем кэш в браузерах посетителей
+<ifModule mod_headers.c>
+    # Все html и htm файлы будут храниться в кэше браузера один день
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=43200"
+    </FilesMatch>
+    # Все css, javascript и текстовые файлы будут храниться в кэше браузера одну неделю
+    <FilesMatch "\.(js|css|txt)$">
+        Header set Cache-Control "max-age=604800"
+    </FilesMatch>
+    # Все флэш файлы и изображения будут храниться в кэше браузера один месяц
+    <FilesMatch "\.(flv|swf|svg|ico|gif|jpg|jpeg|png|woff)$">
+        Header set Cache-Control "max-age=2592000"
+    </FilesMatch>
+    # Отключаем кеширование php и других служебных файлов
+    <FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
+        Header unset Cache-Control
+    </FilesMatch>
+</IfModule>
+
+# сжатие text, html, javascript, css, xml:
+<ifModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript
+</ifModule>
+
+<IfModule mod_headers.c>
+<FilesMatch "\.(eot|font.css|otf|ttc|ttf|woff)$">
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+	# Web fonts
+	AddType application/font-woff woff
+	AddType application/vnd.ms-fontobject eot
+
+	# Browsers usually ignore the font MIME types and sniff the content,
+	# however, Chrome shows a warning if other MIME types are used for the
+	# following fonts.
+	AddType application/x-font-ttf ttc ttf
+	AddType font/opentype otf
+
+	# Make SVGZ fonts work on iPad:
+	# https://twitter.com/FontSquirrel/status/14855840545
+	AddType     image/svg+xml svg svgz
+	AddEncoding gzip svgz
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/css
+  <IfModule mod_setenvif.c>
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  </IfModule>
+</IfModule>

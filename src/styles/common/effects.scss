@@ -1,0 +1,6 @@
+@import "../utils/import-mixin-and-var-scss";
+
+.effect-card {
+  border: 2px solid $color-background;
+  border-radius: 8px;
+}

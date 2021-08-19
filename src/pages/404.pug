@@ -1,0 +1,14 @@
+extends common/layout/layout
+
+block variables
+  include common/dataSourceText/dataSourceText
+  -const title = '404'
+  -const description = 'Page not found'
+  -const keywords = 'Page not found'
+
+block content
+  main
+    section.section
+      .wr-section
+        h1 404
+        p Page not found

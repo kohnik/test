@@ -1,0 +1,26 @@
+block variables
+doctype html
+html(lang=seoForPages.commonData.lang)
+  block head
+    head
+      base(href="/")
+      meta(charset="utf-8")
+      meta(content="width=device-width, initial-scale=1" name="viewport")
+      meta(content="telephone=no" name="format-detection")
+      meta(content="ie=edge" http-equiv="x-ua-compatible")
+      include includes/_seo
+      include includes/_favicon
+      //- include includes/_verify
+      include includes/_google-fonts
+      link(rel="stylesheet" href="css/style.min.css")
+  body
+    //- include includes/_counters/_counters
+    include includes/_disabled_js_and_old_browser
+    include ../components/_import-components-pug
+    .app
+      +Header()
+      block content
+      +Footer()
+
+    block scripts
+      script(src="js/main.min.js")

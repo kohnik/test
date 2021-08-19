@@ -1,0 +1,7 @@
+@import "../../utils/import-mixin-and-var-scss";
+
+.header {
+  &__title {
+    @include web-text-default();
+  }
+}

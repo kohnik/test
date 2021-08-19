@@ -1,0 +1,70 @@
+@import "../variables";
+
+@mixin media-mobile-down {
+  @media only screen and (max-width: $xs) {
+    @content;
+  }
+}
+@mixin media-tablet-down {
+  @media only screen and (max-width: $s) {
+    @content;
+  }
+}
+@mixin media-laptop-down {
+  @media only screen and (max-width: $m) {
+    @content;
+  }
+}
+@mixin media-desktop-down {
+  @media only screen and (max-width: $l) {
+    @content;
+  }
+}
+@mixin media-tv-down {
+  @media only screen and (max-width: $xl) {
+    @content;
+  }
+}
+
+@mixin media-mobile-only {
+  @media only screen and (min-width: $min-width) and (max-width: $xs) {
+    @content;
+  }
+}
+@mixin media-tablet-only {
+  @media only screen and (min-width: $xs + 1px) and (max-width: $s) {
+    @content;
+  }
+}
+@mixin media-laptop-only {
+  @media only screen and (min-width: $s + 1px) and (max-width: $m) {
+    @content;
+  }
+}
+@mixin media-desktop-only {
+  @media only screen and (min-width: $m + 1px) and (max-width: $l) {
+    @content;
+  }
+}
+@mixin media-tv-only {
+  @media only screen and (min-width: $l + 1px) and (max-width: $xl) {
+    @content;
+  }
+}
+
+@mixin media-tv-up {
+  @media only screen and (min-width: $xl) {
+    @content;
+  }
+}
+
+@mixin media-custom-up($width) {
+  @media only screen and (min-width: $width) {
+    @content;
+  }
+}
+@mixin media-custom-down($width) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}

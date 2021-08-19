@@ -1,0 +1,11 @@
+extends common/layout/layout
+
+block variables
+  include common/dataSourceText/dataSourceText
+  -const title = seoForPages.index.title
+  -const description = seoForPages.index.description
+  -const keywords = seoForPages.index.keywords
+
+block content
+  main
+    +CompanyInfo(introData.info)

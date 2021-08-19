@@ -1,0 +1,26 @@
+@import "../mixins/media";
+
+@mixin web-text-default {
+  font-family: $font-text;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: normal;
+}
+@mixin web-body-title {
+  font-family: $font-title;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: normal;
+}
+@mixin web-body-text {
+  font-family: $font-text;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: normal;
+}

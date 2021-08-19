@@ -1,0 +1,13 @@
+// https://animista.net/ - generate css animation
+
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+// use - {
+//   animation: rotate-center 1s linear infinite;
+// }

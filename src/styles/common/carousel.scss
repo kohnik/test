@@ -1,0 +1,8 @@
+@import "../../local_modules/owl.carousel2/dist/assets/owl.carousel.min";
+.owl-carousel {
+  // hack for chrome console error on mobile
+  touch-action: manipulation;
+  .owl-item img {
+    width: auto;
+  }
+}
